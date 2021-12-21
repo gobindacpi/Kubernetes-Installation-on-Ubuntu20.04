@@ -102,16 +102,16 @@ scheduler            Healthy   ok
 etcd-0               Healthy   {"health":"true","reason":""}   
 ```
 
-********************************************************************************
-
-Troubleshooting 
-************************************************************************************
+Troubleshooting If node fail and need to reset kubeadm  
+```
 kubeadm reset
 iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+```
 
-For Joining Token 
+For get Token for new node join 
 ********************************
+```
 kubeadm token create --print-join-command
-
+```
 
 
