@@ -28,7 +28,7 @@ EOF
 ```
 ##Follow the step for all nodes to install Kubernetes
 
----
+```
 sudo apt update
 sudo apt -y upgrade && sudo systemctl reboot
 sudo apt install apt-transport-https curl
@@ -46,10 +46,12 @@ lsmod | grep br_netfilter
 sudo modprobe br_netfilter
 lsmod | grep br_netfilter
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
----
+```
+
+Now Start Below Command on Master Node
  
  
- 
+ ```
  sudo kubeadm init --pod-network-cidr=10.244.0.0/16
  mkdir -p $HOME/.kube
  kubectl get node
@@ -65,9 +67,12 @@ sudo sysctl net.bridge.bridge-nf-call-iptables=1
  kubectl create -f tigera-operator.yaml
  kubectl create -f custom-resources.yaml  
  
- 
+ ```
+
  Finally Check the Cluster Status
  ***************************************************************************************
+ 
+ ```
  root@master:~# kubectl get pods --all-namespaces
 NAMESPACE          NAME                                       READY   STATUS    RESTARTS   AGE
 calico-apiserver   calico-apiserver-5b68b6b54-mp6zg           1/1     Running   0          20m
@@ -95,6 +100,8 @@ NAME                 STATUS    MESSAGE                         ERROR
 controller-manager   Healthy   ok                              
 scheduler            Healthy   ok                              
 etcd-0               Healthy   {"health":"true","reason":""}   
+```
+
 ********************************************************************************
 
 Troubleshooting 
