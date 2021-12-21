@@ -1,8 +1,9 @@
+```
 ###Kubernetes Install On Ubuntu 20.4
 
 ###Install Docker 
-
----
+```
+```
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get update
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -24,7 +25,7 @@ EOF
  sudo systemctl enable docker
  sudo systemctl daemon-reload
  sudo systemctl restart docker
----
+```
 ##Follow the step for all nodes to install Kubernetes
 
 ---
